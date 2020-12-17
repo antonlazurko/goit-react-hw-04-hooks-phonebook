@@ -9,6 +9,7 @@ class App extends Component {
     filter: '',
   };
   addContact = contact => {
+    console.log(contact);
     if (this.state.contacts.find(item => item.name === contact.name)) {
       alert(`${contact.name} is already in contacts.`);
       return;
@@ -49,7 +50,6 @@ class App extends Component {
     console.log('componentWillUnmount');
   }
   render() {
-    console.log('App render');
     const { filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
 
