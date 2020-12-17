@@ -4,9 +4,9 @@ import Form from './Form';
 import ContactsList from './ContactsList/ContactsList';
 import Filter from './Filter';
 export default function App() {
-  const [contacts, setContacts] = useState(
-    JSON.parse(window.localStorage.getItem('contacts')) ?? [],
-  );
+  const [contacts, setContacts] = useState(() => {
+    return JSON.parse(window.localStorage.getItem('contacts')) ?? [];
+  });
   const [filter, setFilter] = useState('');
   const addContact = contact => {
     if (contacts.find(item => item.name === contact.name)) {
